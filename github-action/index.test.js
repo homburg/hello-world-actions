@@ -15,16 +15,23 @@ describe("github-action", () => {
     tools = new Toolkit();
     // Mock methods on it!
     tools.exit.success = jest.fn();
-    tools.runInWorkspace = jest.fn();
+    tools.runInWorkspace = jest.fn().mockReturnValue({ stdout: "stdout" });
     tools.log = jest.fn();
+    tools.log.info = jest.fn();
   });
 
   it("exits successfully", async () => {
     action(tools);
-    for (var i = 0; i < 2; i++) {
-      await expect(tools.runInWorkspace).toHaveBeenCalled();
-      expect(tools.log).toHaveBeenCalled();
-    }
+
+    await expect(tools.runInWorkspace).toHaveBeenCalled();
+    expect(tools.log.info).toHaveBeenCalled();
+
+    await expect(tools.runInWorkspace).toHaveBeenCalled();
+    expect(tools.log).toHaveBeenCalled();
+
+    await expect(tools.runInWorkspace).toHaveBeenCalled();
+    expect(tools.log).toHaveBeenCalled();
+
     expect(tools.exit.success).toHaveBeenCalled();
     expect(tools.exit.success).toHaveBeenCalledWith("We did it!");
   });
