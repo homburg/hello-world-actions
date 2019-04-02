@@ -1,6 +1,6 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["Hello world"]
+  resolves = ["Hello world", "GitHub Toolkit Action"]
 }
 
 action "Hello world" {
@@ -9,4 +9,8 @@ action "Hello world" {
   env = {
     MY_NAME = "Mona"
   }
+}
+
+action "GitHub Toolkit Action" {
+  uses = "./github-action"
 }
