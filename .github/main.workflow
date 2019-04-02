@@ -6,7 +6,7 @@ workflow "New workflow" {
 action "Hello world" {
   uses = "./action-a"
   args = "Hello world, I'm $MY_NAME!"
-  env {
+  env = {
     MY_NAME = "Mona"
   }
 }
