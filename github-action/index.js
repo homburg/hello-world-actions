@@ -1,9 +1,9 @@
-const { Toolkit } = require('actions-toolkit')
+const { Toolkit } = require("actions-toolkit");
 
 // Run your GitHub Action!
 Toolkit.run(async tools => {
-  tools.log(await tools.runInWorkspace("ls", ["-la"]));
+  tools.log((await tools.runInWorkspace("ls", ["-la"])).stdout);
   const result = await tools.runInWorkspace("git", ["log", "--stat"]);
   tools.log(result);
-  tools.exit.success('We did it!')
-})
+  tools.exit.success("We did it!");
+});
