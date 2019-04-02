@@ -7,6 +7,6 @@ action "Hello world" {
   uses = "./action-a"
   args = "Hello world, I'm $MY_NAME!"
   env {
-    MY_NAME = Mona
+    MY_NAME = "Mona"
   }
 }
