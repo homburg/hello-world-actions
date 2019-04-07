@@ -9,6 +9,9 @@ LABEL "com.github.actions.color"="purple"
 # LABEL "homepage"="http://github.com/actions"
 # LABEL "maintainer"="Octocat <octocat@github.com>"
 
+ENV GITHUB_ACTOR
+RUN echo "ACTOR: ${GITHUB_ACTOR}"
+
 RUN apk add --no-cache git tree
 
 ADD entrypoint.sh /entrypoint.sh
