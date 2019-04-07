@@ -8,6 +8,8 @@ git status
 
 echo date +%Y%m%d-%H%M%S >> output.txt
 
+cat .git/config
+
 git add output.txt
 
 git config --global user.email "action-inspect@localhost"
