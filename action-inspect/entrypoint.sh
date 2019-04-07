@@ -4,6 +4,8 @@ ls -la
 
 pwd
 
+echo "ACTOR: ${GITHUB_ACTOR}"
+
 git status
 
 echo date +%Y%m%d-%H%M%S >> output.txt
@@ -21,4 +23,4 @@ git commit -m "ci commit"
 
 git log --stat
 
-git push
+git push -u origin
