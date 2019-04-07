@@ -1,0 +1,21 @@
+{
+  "name": "github-action",
+  "private": true,
+  "main": "build/index.js",
+  "files": "build/",
+  "scripts": {
+    "start": "node ./index.js",
+    "build": "tsc --outDir build",
+    "test": "jest"
+  },
+  "dependencies": {
+    "actions-toolkit": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.0",
+    "jest": "^24.7.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.2"
+  }
+}
