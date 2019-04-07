@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "build": "tsc",
+    "build": "tsc --outDir build",
     "test": "jest"
   },
   "dependencies": {
