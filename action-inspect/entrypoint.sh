@@ -14,6 +14,7 @@ cat .git/config
 
 git add output.txt
 
+git config --global push.default current
 git config --global user.email "action-inspect@localhost"
 git config --global user.name "action-inspect"
 
