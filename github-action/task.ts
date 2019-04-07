@@ -13,6 +13,8 @@ export default async function task(tools: Toolkit) {
 
   await writeFile("output.txt", new Date().toISOString() + "\n", { flag: "a" });
 
+  tools.log(await tools.runInWorkspace("cat", [".git/config"]));
+
   tools.log.info(await tools.runInWorkspace("git", ["status"]));
 
   await tools.runInWorkspace("git", ["add", "output.txt"]);
