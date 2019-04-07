@@ -1,14 +1,10 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["GitHub Toolkit Action"]
+  resolves = ["Inspect"]
 }
 
-action "Hello world" {
-  uses = "./action-a"
-  args = "\"Hello world, I'm $MY_NAME!\""
-  env = {
-    MY_NAME = "Mona"
-  }
+action "Inspect" {
+  uses = "./action-inspect"
 }
 
 action "GitHub Toolkit Action" {

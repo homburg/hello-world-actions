@@ -13,14 +13,23 @@ export default async function task(tools: Toolkit) {
 
   await writeFile("output.txt", new Date().toISOString() + "\n", { flag: "a" });
 
-  tools.log(await tools.runInWorkspace("cat", [".git/config"]));
+  tools.log((await tools.runInWorkspace("cat", [".git/config"])).stdout);
 
-  tools.log.info(await tools.runInWorkspace("git", ["status"]));
+  tools.log.info((await tools.runInWorkspace("git", ["status"])).stdout);
 
   await tools.runInWorkspace("git", ["add", "output.txt"]);
 
+  tools.log.info((await tools.runInWorkspace("git", ["status"])).stdout);
+
+  await tools.runInWorkspace("git", [
+    "config",
+    "--global",
+    "user.name",
+    process.env.GITHUB_ACTOR
+  ]);
+
   tools.log.info(
-    await tools.runInWorkspace("git", ["commit", "-m", `"ci commit"`])
+    (await tools.runInWorkspace("git", ["commit", "-m", `"ci commit"`])).stdout
   );
 
   tools.exit.success("We did it!");
