@@ -1,18 +1,13 @@
-const { Toolkit } = require("actions-toolkit");
+import { Toolkit } from "actions-toolkit";
+import task from "./task";
 
 describe("github-action", () => {
-  let action, tools;
-
-  // Mock Toolkit.run to define `action` so we can call it
-  Toolkit.run = jest.fn(actionFn => {
-    action = actionFn;
-  });
-  // Load up our entrypoint file
-  require(".");
+  let tools: Toolkit;
 
   beforeEach(() => {
     // Create a new Toolkit instance
     tools = new Toolkit();
+
     // Mock methods on it!
     tools.exit.success = jest.fn();
     tools.runInWorkspace = jest.fn().mockReturnValue({ stdout: "stdout" });
@@ -21,15 +16,13 @@ describe("github-action", () => {
   });
 
   it("exits successfully", async () => {
-    action(tools);
+    await task(tools);
 
     await expect(tools.runInWorkspace).toHaveBeenCalled();
+    await expect(tools.runInWorkspace).toHaveBeenCalled();
+    await expect(tools.runInWorkspace).toHaveBeenCalled();
+
     expect(tools.log.info).toHaveBeenCalled();
-
-    await expect(tools.runInWorkspace).toHaveBeenCalled();
-    expect(tools.log).toHaveBeenCalled();
-
-    await expect(tools.runInWorkspace).toHaveBeenCalled();
     expect(tools.log).toHaveBeenCalled();
 
     expect(tools.exit.success).toHaveBeenCalled();

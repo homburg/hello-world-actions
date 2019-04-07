@@ -19,5 +19,8 @@ RUN yarn --frozen-lockfile
 # Copy the rest of your action's code
 COPY . .
 
+# Build
+RUN yarn build
+
 # Run `node /index.js`
-ENTRYPOINT ["node", "/index.js"]
+ENTRYPOINT ["node", "build/index.js"]
