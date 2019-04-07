@@ -10,6 +10,8 @@ LABEL "com.github.actions.color"="purple"
 
 RUN apk add --no-cache git
 
+WORKDIR /action
+
 # Copy the package.json and package-lock.json
 COPY package.json yarn.lock ./
 
@@ -23,4 +25,4 @@ COPY . .
 RUN yarn build
 
 # Run `node /index.js`
-ENTRYPOINT ["node", "build/index.js"]
+ENTRYPOINT ["node", "/action/build/index.js"]
