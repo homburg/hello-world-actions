@@ -20,3 +20,5 @@ git status
 git commit -m "ci commit"
 
 git log --stat
+
+git push
