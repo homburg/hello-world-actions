@@ -16,3 +16,5 @@ git config --global user.name "action-inspect"
 git status
 
 git commit -m "ci commit"
+
+git log --stat
