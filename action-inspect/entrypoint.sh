@@ -11,3 +11,5 @@ echo date +%Y%m%d-%H%M%S >> output.txt
 git add output.txt
 
 git status
+
+git commit -m "ci commit"
