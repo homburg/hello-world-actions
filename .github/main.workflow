@@ -1,6 +1,6 @@
 workflow "New workflow" {
   on = "push"
-  resolves = ["Hello world", "GitHub Toolkit Action"]
+  resolves = ["GitHub Toolkit Action"]
 }
 
 action "Hello world" {
